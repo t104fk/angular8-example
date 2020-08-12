@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild, ElementRef, SimpleChange } from '@angular
 import { ChildComponent } from './child.component';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
+import { GrandsonComponent } from './grandson.component';
 
 @Component({
   selector: 'app-react',
@@ -31,7 +32,9 @@ export class ReactComponent implements OnInit {
 
   private render() {
     ReactDOM.render(
-      <ChildComponent/>,
+      <ChildComponent message={'react child component'}>
+        <GrandsonComponent message="grandson component"></GrandsonComponent>
+      </ChildComponent>,
       this.containerRef.nativeElement
     );
   }
